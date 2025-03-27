@@ -96,7 +96,7 @@ public class AboutRentPage {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(confirmOrderModal)).isDisplayed();
     }
-    //тест упадёт, если мы будем ожидать клика, кнопка не кликатеся, поэтому просто нажимаем на enter (это баг)
+    //тест упадёт, если мы будем ожидать клика, кнопка не кликается, поэтому просто нажимаем на enter (это баг)
     public AboutRentPage clickConfirmYesButton() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
         new Actions(webDriver)

@@ -8,17 +8,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
+import org.openqa.selenium.WebElement;
+
+import ru.practicum.yandex.utils.BaseTest;
+
+
 
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class OrderTestForm1 {
-    private WebDriver webDriver;
+public class OrderTesWhoIsTheScooterForForm extends BaseTest {
+
 
     private final String name;
     private final String surname;
@@ -27,7 +28,7 @@ public class OrderTestForm1 {
     private final String phoneNumber;
     private final By orderButton;
 
-    public OrderTestForm1(String name, String surname, String address, String subwayStation, String phoneNumber, By orderButton) {
+    public OrderTesWhoIsTheScooterForForm(String name, String surname, String address, String subwayStation, String phoneNumber, By orderButton) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -46,21 +47,8 @@ public class OrderTestForm1 {
         };
     }
 
-    @Before
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-    }
-
     @Test // тест первой формы заказа, до нажатия на кнопку "Далее"
     public void testOrderScooterForm1() {
-
-        MainPage mainPage = new MainPage(webDriver);
-
-        mainPage.open();
-
-        OrderPage orderPage = new OrderPage(webDriver);
 
         if (orderButton.equals(MainPage.orderButtonAtTheTop)) {
             // Кликаем на верхнюю кнопку
@@ -86,12 +74,6 @@ public class OrderTestForm1 {
 // проверяем что после заполнения первой формы и нажатия кнопки далее, отображается хедер следующей формы, а значит все поля первой формы заполнены
         assertTrue("Следующий шаг (Про аренду) не отображается", aboutRentPage.AboutRentHeaderIsDisplayed());
 
-    }
-
-    @After
-    public void tearDown() {
-        // Закрываем браузер после выполнения теста
-        webDriver.quit();
     }
 }
 

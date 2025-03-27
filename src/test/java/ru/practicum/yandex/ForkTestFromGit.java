@@ -11,7 +11,7 @@ import java.time.Duration;
 import static org.junit.Assert.assertTrue;
 import static ru.practicum.yandex.utils.Utils.randomString;
 
-public class Fork_Test_from_git {
+public class ForkTestFromGit {
 
     private WebDriver webDriver;
 

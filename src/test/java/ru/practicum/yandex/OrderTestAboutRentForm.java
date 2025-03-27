@@ -8,14 +8,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.practicum.yandex.utils.BaseTest;
 
 import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class OrderTestForm2 {
-    private WebDriver webDriver;
+public class OrderTestAboutRentForm extends BaseTest {
+
 
     // Параметры для первой формы
     private final String name;
@@ -31,8 +32,8 @@ public class OrderTestForm2 {
     private final String comment;
 
     // Конструктор для параметров
-    public OrderTestForm2(String name, String surname, String address, String subwayStation, String phoneNumber,
-                          String deliveryDate, String rentalPeriod, String scooterColor, String comment) {
+    public OrderTestAboutRentForm(String name, String surname, String address, String subwayStation, String phoneNumber,
+                                  String deliveryDate, String rentalPeriod, String scooterColor, String comment) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -57,25 +58,13 @@ public class OrderTestForm2 {
         };
     }
 
-    @Before
-    public void setUp() {
-        // Настройка WebDriver
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-    }
-
     @Test
     public void testOrderForm2() {
         // Открываем главную страницу
-        MainPage mainPage = new MainPage(webDriver);
 
-        mainPage.open();
         // Создаем объект страницы "Про аренду"
-        AboutRentPage aboutRentPage = new AboutRentPage(webDriver);
 
         // нажимаем на кнопку заказать на главной странице
-        OrderPage orderPage = new OrderPage(webDriver);
 
         orderPage.clickOrderButtonTop();
 
@@ -100,11 +89,5 @@ public class OrderTestForm2 {
 
         // Проверяем, что всплывающее окно с надписью "Заказ оформлен" отображается
         assertTrue("Всплывающее окно с подтверждением заказа не отображается", aboutRentPage.isOrderSuccessModalDisplayed());
-    }
-
-    @After
-    public void tearDown() {
-
-        webDriver.quit();
     }
 }

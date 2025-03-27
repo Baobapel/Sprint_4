@@ -26,7 +26,7 @@ public class OrderPage {
     // кнопка далее
     private final By nextButton = By.xpath("//*[@id='root']/div/div[2]/div[3]/button");
     // заголовок "Для кого самокат" на странице с формой заказа
-    private final By ForWhomOrderHeader = By.xpath("//*[@id='root']/div/div[2]/div[1]");
+    private final By forWhomOrderHeader = By.xpath("//*[@id='root']/div/div[2]/div[1]");
 
     private WebDriver webDriver;
 
@@ -40,7 +40,7 @@ public class OrderPage {
         webDriver.findElement(orderButtonAtTheTop).click();
 
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(ForWhomOrderHeader));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(forWhomOrderHeader));
 
         return this;
     }
@@ -50,7 +50,7 @@ public class OrderPage {
         webDriver.findElement(orderButtonAtTheBottom).click();
 
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(ForWhomOrderHeader));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(forWhomOrderHeader));
 
         return this;
     }
