@@ -1,16 +1,9 @@
 package ru.practicum.yandex;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import ru.practicum.yandex.utils.BaseTest;
-
-import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
 
@@ -59,7 +52,7 @@ public class OrderTestAboutRentForm extends BaseTest {
     }
 
     @Test
-    public void testOrderForm2() {
+    public void testOrderAboutRentForm() {
         // Открываем главную страницу
 
         // Создаем объект страницы "Про аренду"
