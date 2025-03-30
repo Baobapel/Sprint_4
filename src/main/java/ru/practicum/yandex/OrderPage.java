@@ -93,7 +93,7 @@ public class OrderPage {
     }
 
     // вводим номер телефона
-    public OrderPage EnterPhoneNumber() {
+    public OrderPage enterPhoneNumber() {
         webDriver.findElement(phoneNumberField).sendKeys("81234567890");
         return this;
     }

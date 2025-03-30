@@ -1,8 +1,5 @@
 package ru.practicum.yandex;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -48,7 +45,7 @@ public class OrderTesWhoIsTheScooterForForm extends BaseTest {
     }
 
     @Test // тест первой формы заказа, до нажатия на кнопку "Далее"
-    public void testOrderScooterForm1() {
+    public void testOrderScooterAboutRentForm() {
 
         if (orderButton.equals(MainPage.orderButtonAtTheTop)) {
             // Кликаем на верхнюю кнопку
@@ -66,7 +63,7 @@ public class OrderTesWhoIsTheScooterForForm extends BaseTest {
                 .EnterSurname(surname)
                 .EnterAddress(address)
                 .ChooseSubway(subwayStation)
-                .EnterPhoneNumber()
+                .enterPhoneNumber()
                 .clickNextButton();
 
         AboutRentPage aboutRentPage = new AboutRentPage(webDriver);

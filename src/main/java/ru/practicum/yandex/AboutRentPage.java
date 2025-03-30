@@ -38,7 +38,7 @@ public class AboutRentPage {
                 .EnterSurname(surname)
                 .EnterAddress(address)
                 .ChooseSubway(subwayStation)
-                .EnterPhoneNumber()
+                .enterPhoneNumber()
                 .clickNextButton();
 
         // Ожидаем появления заголовка "Про аренду"
